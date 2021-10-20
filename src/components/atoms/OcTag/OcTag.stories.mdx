@@ -1,0 +1,63 @@
+import { action } from "@storybook/addon-actions"
+import { Canvas, Meta, Story } from "@storybook/addon-docs"
+
+import OcTag from "./OcTag.vue"
+
+<Meta title="Atoms/Tag/Examples" component={OcTag} />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { OcTag },
+  data() {
+    return {
+      args: { onClick: { action: "clicked" }, ...args },
+    }
+  },
+  template: `<oc-tag v-bind="$props" @click="action">${args.text}</oc-tag>`,
+  methods: { action: action("Clicked!") },
+})
+
+# Examples of OcTag component
+
+<br />
+
+## Span
+
+<Canvas>
+  <Story
+    name="Span"
+    args={{
+      text: "This is a span element",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Link
+
+<Canvas>
+  <Story
+    name="Link"
+    args={{
+      type: "a",
+      text: "This is a link element",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Button
+
+<Canvas>
+  <Story
+    name="Button"
+    args={{
+      type: "button",
+      text: "This is a button element",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
