@@ -3,6 +3,8 @@
  * You can add more things if/when needed.
  */
 import Vue from "vue"
+// VueCompositionAPI is bundled only in the docs. The design system itself depends on the consuming app in providing it
+import VueCompositionAPI from "@vue/composition-api"
 import statusLabels from "./utils/statusLabels"
 import activeNav from "./utils/activeNav"
 import filterSearch from "./utils/filterSearch"
@@ -13,6 +15,7 @@ import GetTextPlugin from "vue-gettext"
 Vue.config.productionTip = false
 Vue.mixin(statusLabels)
 Vue.use(GetTextPlugin, { translations: {} })
+Vue.use(VueCompositionAPI)
 
 document.addEventListener("DOMContentLoaded", () => {
   filterSearch.methods.init()
