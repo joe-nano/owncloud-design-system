@@ -189,6 +189,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../assets/tokens/ods";
+@import "../../../styles/styles";
+
 .oc-textarea {
   background-color: var(--oc-color-input-bg);
   border-radius: 3px;
