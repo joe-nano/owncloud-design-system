@@ -6,6 +6,14 @@
  */
 
 import "./styles/styles.scss"
+import sortMixin from "./mixins/sort.js"
+import { getSizeClass } from "./utils/sizeClasses.js"
+import OcTable from "./components/molecules/OcTable/OcTable.vue"
+
+export * as constants from "./helpers/constants.js"
+export const mixins = { sortMixin }
+export const utils = { sizeClasses: { getSizeClass } }
+export const components = { OcTable }
 
 // Define contexts to require
 const componentsContext = require.context("./components/", true, /\.vue$/)
